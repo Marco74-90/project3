@@ -25,8 +25,14 @@ export default class Home extends Component {
 
         return(
             <div>
-                <DisplayCharacter character={this.state.characters}/>
-                <DisplayShow show={this.state.shows}/>
+                <div>
+                    <NavBar />
+                </div>
+                <div>
+                    <DisplayCharacter character={this.state.characters}/>
+                    <DisplayShow show={this.state.shows}/>
+                </div>
+            
             </div>
         )
     }

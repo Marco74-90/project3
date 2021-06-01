@@ -1,13 +1,11 @@
 import {Route, Switch} from 'react-router-dom'
 import './App.css';
+import Home from '.Home'
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Switch>
-
-      </Switch>
+      <Home/>
     </div>
   );
 }
