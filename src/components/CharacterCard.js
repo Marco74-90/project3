@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export default class Character extends Component{
+export default class CharacterCard extends Component{
 
     render() {
 

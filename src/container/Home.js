@@ -20,6 +20,8 @@ export default class Home extends Component {
         .then(data => this.setState({shows:data}))
     }
 
+    
+
 
     render() {
 

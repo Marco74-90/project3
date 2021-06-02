@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Show from './components/Show'
+import ShowCard from './components/ShowCard'
 
 export default class DisplayShow extends Component {
 
@@ -8,7 +8,7 @@ export default class DisplayShow extends Component {
         return (
 
             <div>
-                {this.props.shows.map((show) => <Show show={show}/>)}
+                {this.props.shows.map((show) => <ShowCard show={show}/>)}
             </div>
         )
     }
