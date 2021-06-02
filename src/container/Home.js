@@ -27,15 +27,17 @@ export default class Home extends Component {
 
         return(
             <div>
-                <div>
-                    <NavBar />
-                </div>
-                <div>
-                    <DisplayCharacter character={this.state.characters} show={this.state.shows}/>
-                    <DisplayShow show={this.state.shows} character={this.state.characters}/>
-                </div>
-            
+                <NavBar />
+                <Switch>
+                    <Route exact path='/Home' component={Home} />
+                    <Route exact path="/Characters"  component={DisplayCharacter} />
+                    <Route exact path="/Shows" component={DisplayShow} />
+                </Switch>
             </div>
+              
         )
     }
 }
+
+{/* <DisplayCharacter character={this.state.characters} show={this.state.shows}/>
+<DisplayShow show={this.state.shows} character={this.state.characters}/> */}
