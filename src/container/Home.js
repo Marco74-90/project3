@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import DisplayCharacter from './DisplayCharacter'
 import DisplayShow from './DisplayShow'
-const URL1 = "a"
-const URL2 = "b"
+const URL1 = ""
+const URL2 = ""
 export default class Home extends Component {
 
     state = {
@@ -20,7 +20,7 @@ export default class Home extends Component {
         .then(data => this.setState({shows:data}))
     }
 
-    
+
 
 
     render() {
@@ -31,8 +31,8 @@ export default class Home extends Component {
                     <NavBar />
                 </div>
                 <div>
-                    <DisplayCharacter character={this.state.characters}/>
-                    <DisplayShow show={this.state.shows}/>
+                    <DisplayCharacter character={this.state.characters} show={this.state.shows}/>
+                    <DisplayShow show={this.state.shows} character={this.state.characters}/>
                 </div>
             
             </div>

@@ -8,7 +8,7 @@ export default class DisplayCharacter extends Component {
         return(
             <div>
                 <div>
-                    {this.props.characters.map((character) => <CharacterCard character={character}/>)}
+                    {this.props.characters.map((character) => <CharacterCard character={character} show={this.props.show}/>)}
                 </div>
                 
             </div>
