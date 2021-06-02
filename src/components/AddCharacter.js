@@ -1,7 +1,7 @@
 import React, {Component} from  "react" 
 import {Form} from 'react-bootstrap'
 const URL = ""
-export default class Form extends Component {
+export default class AddCharacter extends Component {
 
     state = {
         name: "",
@@ -10,7 +10,8 @@ export default class Form extends Component {
     }
 
 
-    handleSubmit= () => {
+    handleSubmit= (e) => {
+        e.preventDefault()
 
         const newObj = {
             headers:{"Content-Type": "application/json"},

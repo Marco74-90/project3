@@ -6,7 +6,7 @@ export default class CharacterCard extends Component{
     render() {
 
         const {id, name, image, age, quote, show} = this.props.character
-        const {id, show,} = this.props.show //db should be specific
+        const {id, show,} = this.props.show //db should be specific with names 
 
 
         return(
