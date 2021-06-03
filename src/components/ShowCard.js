@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import {Link, Router} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {Card, Button, ListGroup, ListGroupItem} from 'react-bootstrap'
 
 
 export default class ShowCard extends Component {
 
     render() {
-        const {id, name, image} = this.props.show
+        const {name, image} = this.props.show
        
 
         return(

@@ -1,14 +1,13 @@
 import React, {Component} from 'react'
 import {Card, Button} from 'react-bootstrap'
-const URL = "localhost:9292/"
+
 export default class CharacterCard extends Component{
 
     
 
     render() {
 
-        const {id, name, image, age, quote,likes} = this.props.character
-        const {characters,} = this.props.show //db should be specific with names 
+        const {name, image, age, quote,likes} = this.props.character
 
         return(
             <div>

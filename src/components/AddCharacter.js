@@ -1,6 +1,6 @@
 import React, {Component} from  "react" 
 import {Form, Button} from 'react-bootstrap'
-const URL = ""
+const URL = "http://localhost:9292/Characters"
 export default class AddCharacter extends Component {
 
     state = {
