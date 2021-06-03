@@ -13,7 +13,7 @@ export default class Home extends Component {
         characters:[],
         shows:[],
         quotes:[],
-        searchText:""
+        search:""
     }
 
     componentDidMount() {
@@ -28,22 +28,19 @@ export default class Home extends Component {
         .then(data => this.setState({quotes: data}))
     }
 
+    handleSearch = (input) => {
+        this.setState({search: input})
+    }
+
+    
+
     
 
 
     render() {
 
-        const handleSearch = (input) => {
-            this.setState({searchText:input})
-        }
-
-        const filteredCharacter = 
-                this.state.characters.filter(character => {
-                    return character.name.toLowerCase().includes(this.state.searchText.toLocaleLowerCase())
-                }) 
-
-        
-
+        const filteredCharacter = this.state.characters.filter(character => character.name.toLowerCase().includes(this.state.search.toLowerCase()))
+        const filteredShow = this.state.shows.filter(show => show.name.toLowerCase().includes(this.state.search.toLowerCase()))
 
 
         return(
@@ -54,10 +51,12 @@ export default class Home extends Component {
                         <Route exact path="/Characters"  render={() => <DisplayCharacter character={filteredCharacter}
                                                                                          show={this.state.shows} 
                                                                                          quote={this.state.quotes} 
-                                                                                         handleSearch={handleSearch}
-                                                                                         searchText={this.state.searchText}/>} />
-                        <Route exact path="/Shows" render={() => <DisplayShow show={this.state.shows} 
-                                                                              character={this.state.characters}/>} />
+                                                                                         handleSearch={this.handleSearch}
+                                                                                         search={this.state.search}/>} />
+                        <Route exact path="/Shows" render={() => <DisplayShow show={filteredShow} 
+                                                                              character={this.state.characters}
+                                                                              handleSearch={this.handleSearch}
+                                                                              search={this.state.search}/>} />
                         <Route exact path="/AddCharacter" component={AddCharacter} />
                     </Switch>              
             </div>
