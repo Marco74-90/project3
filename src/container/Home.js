@@ -1,21 +1,25 @@
 import React, {Component} from 'react'
+import {Switch, Route} from 'react-router-dom'
+import NavBar from '../components/NavBar'
+import AddCharacter from '../components/AddCharacter'
 import DisplayCharacter from './DisplayCharacter'
 import DisplayShow from './DisplayShow'
-const URL1 = ""
-const URL2 = ""
+const URL = "http://localhost:9292/characters"
+const URL2 = "http://localhost:9292/shows"
+const URL3 = "http://localhost:9292/quotes"
 export default class Home extends Component {
 
     state = {
         characters:[],
         shows:[],
-        details:{}
+        quotes:[]
     }
 
     componentDidMount() {
-        fetch(URL1)
+        fetch(URL)
         .then(res => res.json())
         .then(data => this.setState({characters:data}))
-        fetch (URL2)
+        fetch(URL2)
         .then(res => res.json())
         .then(data => this.setState({shows:data}))
     }
@@ -28,16 +32,16 @@ export default class Home extends Component {
         return(
             <div>
                 <NavBar />
-                <Switch>
-                    <Route exact path='/Home' component={Home} />
-                    <Route exact path="/Characters"  component={DisplayCharacter} />
-                    <Route exact path="/Shows" component={DisplayShow} />
-                </Switch>
+                    <Switch>
+                        <Route exact path='/Home' component={Home} />
+                        <Route exact path="/Characters"  render={() => <DisplayCharacter character={this.state.characters} show={this.state.shows}/>} />
+                        <Route exact path="/Shows" render={() => <DisplayShow show={this.state.shows} character={this.state.characters}/>} />
+                        <Route exact path="/AddCharacter" component={AddCharacter} />
+                    </Switch>              
             </div>
               
         )
     }
 }
 
-{/* <DisplayCharacter character={this.state.characters} show={this.state.shows}/>
-<DisplayShow show={this.state.shows} character={this.state.characters}/> */}
+

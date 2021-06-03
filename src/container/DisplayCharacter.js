@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import CharacterCard from './components/CharacterCard'
+import CharacterCard from '../components/CharacterCard'
 
 export default class DisplayCharacter extends Component {
 
@@ -8,7 +8,7 @@ export default class DisplayCharacter extends Component {
         return(
             <div>
                 <div>
-                    {this.props.characters.map((character) => <CharacterCard character={character} show={this.props.show}/>)}
+                    {this.props.character.map((character) => <CharacterCard character={character} show={this.props.show} key={character.id}/>)}
                 </div>
                 
             </div>

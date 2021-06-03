@@ -1,18 +1,19 @@
 import React, {Component} from  "react" 
-import {Form} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 const URL = ""
 export default class AddCharacter extends Component {
 
     state = {
         name: "",
         age : 0,
-        image: ""
+        quote: "",
+        image: "",
+        likes: 0
     }
 
 
-    handleSubmit= (e) => {
+    submit = (e) => {
         e.preventDefault()
-
         const newObj = {
             headers:{"Content-Type": "application/json"},
             method: "POST",
@@ -32,7 +33,7 @@ export default class AddCharacter extends Component {
         return (
             
             <div>
-                <Form onSubmit={handleSubmit}>
+                <Form>
                     <Form.Group>
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter Name" onChange={this.setState({name:this.input.value})}/>
@@ -40,6 +41,10 @@ export default class AddCharacter extends Component {
                     <Form.Group>
                         <Form.Label>Age</Form.Label>
                         <Form.Control type="number" placeholder="Enter Age" onChange={this.setState({age:this.input.value})}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>quote</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Quote" onChange={this.setState({name:this.input.value})}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Image</Form.Label>
