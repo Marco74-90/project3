@@ -7,10 +7,12 @@ export default class CharacterCard extends Component{
     likeQuote = (e) => {
 
         const likes = this.props.character.quotes[0].likes
+        console.log(likes)
 
         fetch(`http://localhost:9292/characters/${this.props.character.id}`, {
-            method:"PATCH",
+
             headers:{"Content-Type": "application/json"},
+            method:"PATCH",
             body: JSON.stringify({likes: likes + 1})
         })
             .then(res => res.json())
@@ -18,7 +20,7 @@ export default class CharacterCard extends Component{
 
     render() {
 
-        const {id, name, image, age, quotes} = this.props.character
+        const {name, image, age, quotes} = this.props.character
         const quote = quotes[0].quote
         const likes = quotes[0].likes
         
@@ -33,9 +35,9 @@ export default class CharacterCard extends Component{
                     <Card.Img variant="top" src={image} />
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
-                        <Card.Text>{age}</Card.Text>
+                        <Card.Text>Age: {age}</Card.Text>
                         <Card.Text>{quote}</Card.Text>
-                        <Button onClick={(e) => this.likeQuote} variant="primary">Likes: {likes}</Button>
+                        <Button onClick={this.likeQuote} variant="primary">Likes: {likes}</Button>
                     </Card.Body>
                 </Card>
             </div>
