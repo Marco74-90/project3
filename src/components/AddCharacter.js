@@ -12,28 +12,30 @@ export default class AddCharacter extends Component {
     }
 
 
-    submit = (e) => {
-        e.preventDefault()
-        const newObj = {
-            headers:{"Content-Type": "application/json"},
-            method: "POST",
-            body: JSON.stringify(this.state)
-        }
-        
-        fetch(URL,newObj)
-        .then(res => res.json())
-        .then()
-    }
-
-
+    
 
 
     render() {
 
+        const submit = (e) => {
+                e.preventDefault()
+                const newObj = {
+                    headers:{"Content-Type": "application/json"},
+                    method: "POST",
+                    body: JSON.stringify(this.state)
+                }
+                
+                fetch(URL,newObj)
+                .then(res => res.json())
+                .then()
+        }
+    
+    
+
         return (
             
             <div>
-                <Form>
+                <Form onSubmit={submit}>
                     <Form.Group>
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter Name" onChange={(e) => this.setState({name: e.target.value})}/>

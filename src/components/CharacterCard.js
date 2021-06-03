@@ -7,7 +7,8 @@ export default class CharacterCard extends Component{
 
     render() {
 
-        const {name, image, age, quote,likes} = this.props.character
+        const {name, image, age,likes} = this.props.character
+
 
         return(
             <div>
@@ -16,7 +17,7 @@ export default class CharacterCard extends Component{
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>{age}</Card.Text>
-                        <Card.Text>{quote}</Card.Text>
+                        <Card.Text>quote</Card.Text>
                         <Button variant="primary">Like `${likes}`</Button>
                     </Card.Body>
                 </Card>
