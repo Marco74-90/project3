@@ -18,7 +18,7 @@ export default class ShowCard extends Component {
                         <ListGroup className="list-group-flush">
                                 
                         </ListGroup>
-                        <Button variant="primary">Add Character</Button> {/*link to form */}
+                        <Link to="/AddCharacter"><Button variant="primary">Add Character</Button> </Link>{/*link to form */}
                     </Card.Body>
                 </Card> 
             </div>
