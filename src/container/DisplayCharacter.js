@@ -11,7 +11,7 @@ export default class DisplayCharacter extends Component {
             <div>
                 <SearchCharacter searchText={this.props.search} handleSearch={this.props.handleSearch}/>
                 <div>
-                    {this.props.character.map((character) => <CharacterCard character={character} show={this.props.show} key={character.id} quote={this.props.quote}/>)}
+                    {this.props.character.map((character) => <CharacterCard character={character} show={this.props.show} key={character.id}/>)}
                 </div>
             </div>
         )

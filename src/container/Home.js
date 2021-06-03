@@ -6,13 +6,12 @@ import DisplayCharacter from './DisplayCharacter'
 import DisplayShow from './DisplayShow'
 const URL = "http://localhost:9292/characters"
 const URL2 = "http://localhost:9292/shows"
-const URL3 = "http://localhost:9292/quotes"
+
 export default class Home extends Component {
 
     state = {
         characters:[],
         shows:[],
-        quotes:[],
         search:""
     }
 
@@ -23,9 +22,6 @@ export default class Home extends Component {
         fetch(URL2)
         .then(res => res.json())
         .then(data => this.setState({shows:data}))
-        fetch(URL3)
-        .then(res => res.json())
-        .then(data => this.setState({quotes: data}))
     }
 
     handleSearch = (input) => {
@@ -50,7 +46,6 @@ export default class Home extends Component {
                         <Route exact path='/Home' component={Home} />
                         <Route exact path="/Characters"  render={() => <DisplayCharacter character={filteredCharacter}
                                                                                          show={this.state.shows} 
-                                                                                         quote={this.state.quotes} 
                                                                                          handleSearch={this.handleSearch}
                                                                                          search={this.state.search}/>} />
                         <Route exact path="/Shows" render={() => <DisplayShow show={filteredShow} 
