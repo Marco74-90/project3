@@ -16,6 +16,7 @@ export default class CharacterCard extends Component{
             body: JSON.stringify({likes: likes + 1})
         })
             .then(res => res.json())
+            .then(newLikes => this.props.newLikes(newLikes))
             
     }
 

@@ -28,10 +28,23 @@ export default class Home extends Component {
         this.setState({search: input})
     }
 
-    updateLikes = (e) => {
-
-    
-
+    renderLikes = (newLikes) => {
+        const map = this.state.characters.map((character) => {
+            if (character.id === newLikes.id) {
+                console.log(newLikes)
+                return newLikes
+            }
+            else {
+                return character
+            }
+        })
+        
+        // return this.setState({characters:map},  (state) => {console.log(state)})
+        this.setState((state, props) => {
+            console.log(map)
+            return {characters:map};
+          });
+        
     }
 
     
@@ -40,6 +53,7 @@ export default class Home extends Component {
 
 
     render() {
+    
 
 
         const filteredCharacter = this.state.characters.filter(character => character.name.toLowerCase().includes(this.state.search.toLowerCase()))
@@ -59,6 +73,7 @@ export default class Home extends Component {
                     <Route exact path="/Characters"  render={() => <DisplayCharacter character={filteredCharacter}
                                                                                     show={this.state.shows} 
                                                                                     handleSearch={this.handleSearch}
+                                                                                    newLikes={this.renderLikes}
                                                                                     search={this.state.search}/>} />
                     <Route exact path="/Shows" render={() => <DisplayShow show={filteredShow} 
                                                                         character={this.state.characters}
