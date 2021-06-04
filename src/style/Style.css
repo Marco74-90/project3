@@ -1,0 +1,52 @@
+
+body {
+    background-image: linear-gradient( 180deg,#87CEFB,#B3E8FF,#FCFCBD,#FEFFE1,#F5F5F4);
+}
+
+.card{
+    display: inline-grid;
+    border: black solid 2px;
+    padding: 1px;
+    margin: 5px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    background-color: #FCFCBD;
+
+}
+.image {
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%
+
+}
+.name {
+    border: black solid 1px;
+    background-color: #B3E8FF;
+}
+.info {
+
+    border: black solid 1px;
+    background-color: #B3E8FF ;
+    
+}
+
+ul {
+    list-style-type: none;
+    display: inline-block;
+  }
+
+  ul li {
+    float: left;
+    margin: 0 20px;
+   
+  }
+
+
+  .header{
+      background-color: #87CEFB;
+      border: black solid 1px;
+      height: 90px;
+  }
+

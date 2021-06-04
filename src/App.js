@@ -1,7 +1,7 @@
 
 import './style/App.css';
 import Home from './container/Home'
-
+import Style from './style/Style.css'
 
 function App() {
 

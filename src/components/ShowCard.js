@@ -11,10 +11,10 @@ export default class ShowCard extends Component {
 
         return(
             <div>
-                <Card style={{ width: '18rem' }}>
+                <Card className="card">
                     <Card.Img variant="top" src={image} />
                     <Card.Body>
-                        <Card.Title>{name}</Card.Title>
+                        <Card.Title className='name'>{name}</Card.Title>
                         <ListGroup className="list-group-flush">
                                 
                         </ListGroup>

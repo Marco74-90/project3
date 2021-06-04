@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
 import {Card, Button} from 'react-bootstrap'
+import Style from '../style/Style.css'
 
 export default class CharacterCard extends Component{
     
 
-    likeQuote = (e) => {
+    likeQuote = () => {
 
         const likes = this.props.character.quotes[0].likes
-        console.log(likes)
-
+    
         fetch(`http://localhost:9292/characters/${this.props.character.id}`, {
 
             headers:{"Content-Type": "application/json"},
@@ -16,6 +16,7 @@ export default class CharacterCard extends Component{
             body: JSON.stringify({likes: likes + 1})
         })
             .then(res => res.json())
+            
     }
 
     render() {
@@ -31,12 +32,12 @@ export default class CharacterCard extends Component{
 
         return(
             <div>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={image} />
+                <Card className="card" style={{ width: '18rem' }}>
+                    <Card.Img className="image" variant="top" src={image} />
                     <Card.Body>
-                        <Card.Title>{name}</Card.Title>
-                        <Card.Text>Age: {age}</Card.Text>
-                        <Card.Text>{quote}</Card.Text>
+                        <Card.Title className="name">{name}</Card.Title>
+                        <Card.Text className="info">Age: {age}</Card.Text>
+                        <Card.Text className="info">{quote}</Card.Text>
                         <Button onClick={this.likeQuote} variant="primary">Likes: {likes}</Button>
                     </Card.Body>
                 </Card>
