@@ -46,7 +46,7 @@ export default class AddCharacter extends Component {
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>quote</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Quote" onChange={(e) => this.setState({name: e.target.value})}/>
+                        <Form.Control type="text" placeholder="Enter Quote" onChange={(e) => this.setState({quote: e.target.value})}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Image</Form.Label>
